@@ -1,0 +1,39 @@
+/* ================================================================
+   App.css — Main layout styles for the application shell
+   Defines the sidebar + content two-column layout
+   ================================================================ */
+
+/* ==================== App Layout ==================== */
+.app-layout {
+  display: flex;
+  min-height: 100vh;
+  background-color: var(--bg-primary);
+}
+
+/* ==================== Content Area (right of sidebar) ==================== */
+.app-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  margin-left: var(--sidebar-width);
+  min-height: 100vh;
+  transition: var(--transition-base);
+}
+
+/* ==================== Main Page Content ==================== */
+.app-main {
+  flex: 1;
+  padding: var(--spacing-xl);
+  overflow-y: auto;
+}
+
+/* ==================== Responsive: Mobile ==================== */
+@media (max-width: 768px) {
+  .app-content {
+    margin-left: 0;
+  }
+
+  .app-main {
+    padding: var(--spacing-md);
+  }
+}

@@ -1,0 +1,276 @@
+/* ================================================================
+   StudentList.css — Styles for the Student List page
+   ================================================================ */
+
+/* ==================== Page Layout ==================== */
+.student-list-page {
+  max-width: 1200px;
+}
+
+/* ==================== Header ==================== */
+.student-list-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--spacing-lg);
+  flex-wrap: wrap;
+  gap: var(--spacing-md);
+}
+
+.student-list-count {
+  color: var(--text-secondary);
+  font-size: var(--font-sm);
+  font-weight: 500;
+}
+
+.student-list-actions {
+  display: flex;
+  gap: var(--spacing-sm);
+}
+
+/* ==================== Search Bar ==================== */
+.student-list-search {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-bottom: var(--spacing-lg);
+}
+
+.search-icon {
+  position: absolute;
+  left: 16px;
+  color: var(--text-muted);
+  pointer-events: none;
+}
+
+.search-input {
+  width: 100%;
+  padding: 12px 16px 12px 48px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  font-family: var(--font-family);
+  font-size: var(--font-sm);
+  transition: var(--transition-fast);
+  outline: none;
+}
+
+.search-input:focus {
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 0 3px var(--accent-glow);
+}
+
+.search-input::placeholder {
+  color: var(--text-muted);
+}
+
+.search-clear {
+  position: absolute;
+  right: 16px;
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  font-size: var(--font-sm);
+  padding: 4px 8px;
+  border-radius: var(--radius-sm);
+  transition: var(--transition-fast);
+}
+.search-clear:hover { color: var(--text-primary); }
+
+/* ==================== Table Wrapper ==================== */
+.student-table-wrap {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  overflow-x: auto;
+}
+
+/* ==================== Table ==================== */
+.student-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 750px;
+}
+
+.student-table thead tr {
+  background: var(--bg-tertiary);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.student-table thead th {
+  padding: 14px var(--spacing-lg);
+  font-size: var(--font-xs);
+  font-weight: 700;
+  color: var(--text-muted);
+  text-align: left;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+}
+
+/* Table Rows */
+.student-table-row {
+  border-bottom: 1px solid rgba(51, 65, 85, 0.5);
+  transition: var(--transition-fast);
+}
+
+.student-table-row:last-child {
+  border-bottom: none;
+}
+
+.student-table-row:hover {
+  background: rgba(99, 102, 241, 0.04);
+}
+
+.student-table td {
+  padding: 14px var(--spacing-lg);
+  vertical-align: middle;
+}
+
+/* ==================== Cell Styles ==================== */
+.student-id-badge {
+  font-size: var(--font-xs);
+  font-weight: 700;
+  color: var(--text-muted);
+  background: var(--bg-tertiary);
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+}
+
+.student-name-cell {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.student-avatar {
+  width: 36px;
+  height: 36px;
+  background: linear-gradient(135deg, var(--accent-primary), var(--accent-hover));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: var(--font-sm);
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.student-name {
+  font-size: var(--font-sm);
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.student-email {
+  font-size: var(--font-sm);
+  color: var(--text-secondary);
+}
+
+.student-phone {
+  font-size: var(--font-sm);
+  color: var(--text-secondary);
+  font-family: monospace;
+  letter-spacing: 0.05em;
+}
+
+.student-course {
+  font-size: var(--font-sm);
+  color: var(--text-secondary);
+}
+
+/* ==================== Action Buttons ==================== */
+.student-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.action-btn {
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.action-btn--view {
+  background: var(--info-bg);
+  color: var(--info);
+}
+.action-btn--view:hover {
+  background: var(--info);
+  color: white;
+}
+
+.action-btn--edit {
+  background: rgba(245,158,11,0.1);
+  color: var(--warning);
+}
+.action-btn--edit:hover {
+  background: var(--warning);
+  color: white;
+}
+
+.action-btn--delete {
+  background: var(--danger-bg);
+  color: var(--danger);
+}
+.action-btn--delete:hover {
+  background: var(--danger);
+  color: white;
+}
+
+.action-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.mini-spinner {
+  width: 14px;
+  height: 14px;
+  border: 2px solid currentColor;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+}
+
+/* ==================== Empty / Loading States ==================== */
+.student-list-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-md);
+  padding: var(--spacing-2xl) 0;
+  color: var(--text-secondary);
+}
+
+.student-list-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-md);
+  padding: var(--spacing-2xl) 0;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+.student-list-empty h3 {
+  color: var(--text-secondary);
+  font-size: var(--font-xl);
+}
+
+.student-list-empty p {
+  font-size: var(--font-sm);
+  max-width: 360px;
+}

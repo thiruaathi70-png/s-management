@@ -1,0 +1,289 @@
+/* ================================================================
+   Dashboard.css — Styles for the Dashboard page
+   ================================================================ */
+
+/* ==================== Dashboard Container ==================== */
+.dashboard {
+  max-width: 1200px;
+}
+
+/* ==================== Header ==================== */
+.dashboard-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--spacing-xl);
+  flex-wrap: wrap;
+  gap: var(--spacing-md);
+}
+
+.dashboard-greeting {
+  font-size: var(--font-3xl);
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-xs);
+}
+
+.dashboard-subtitle {
+  color: var(--text-secondary);
+  font-size: var(--font-base);
+}
+
+/* ==================== Stats Cards Grid ==================== */
+.dashboard-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-xl);
+}
+
+/* ==================== Stat Card ==================== */
+.stat-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-xl);
+  display: flex;
+  gap: var(--spacing-md);
+  align-items: flex-start;
+  position: relative;
+  overflow: hidden;
+  transition: var(--transition-base);
+}
+
+.stat-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+}
+
+.stat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Color variants */
+.stat-card--indigo .stat-card-icon { background: rgba(99,102,241,0.15); color: #818cf8; }
+.stat-card--indigo::before { background: linear-gradient(90deg, #6366f1, #818cf8); }
+
+.stat-card--emerald .stat-card-icon { background: rgba(16,185,129,0.15); color: #34d399; }
+.stat-card--emerald::before { background: linear-gradient(90deg, #10b981, #34d399); }
+
+.stat-card--amber .stat-card-icon { background: rgba(245,158,11,0.15); color: #fbbf24; }
+.stat-card--amber::before { background: linear-gradient(90deg, #f59e0b, #fbbf24); }
+
+.stat-card--rose .stat-card-icon { background: rgba(239,68,68,0.15); color: #f87171; }
+.stat-card--rose::before { background: linear-gradient(90deg, #ef4444, #f87171); }
+
+.stat-card-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.stat-card-body { flex: 1; }
+
+.stat-card-label {
+  font-size: var(--font-xs);
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 4px;
+}
+
+.stat-card-value {
+  font-size: var(--font-3xl);
+  font-weight: 800;
+  color: var(--text-primary);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.stat-card-desc {
+  font-size: var(--font-xs);
+  color: var(--text-muted);
+}
+
+/* ==================== Bottom Grid ==================== */
+.dashboard-bottom-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-lg);
+}
+
+@media (max-width: 900px) {
+  .dashboard-bottom-grid { grid-template-columns: 1fr; }
+}
+
+/* ==================== Dashboard Card ==================== */
+.dashboard-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.dashboard-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-lg) var(--spacing-xl);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.dashboard-card-header h3 {
+  font-size: var(--font-base);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.dashboard-card-body {
+  padding: var(--spacing-lg);
+}
+
+/* Small button variant */
+.btn-sm {
+  padding: 6px 14px;
+  font-size: var(--font-xs);
+}
+
+/* ==================== Department Breakdown ==================== */
+.dept-row {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-md);
+}
+
+.dept-name {
+  font-size: var(--font-sm);
+  color: var(--text-secondary);
+  font-weight: 500;
+  width: 100px;
+  flex-shrink: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.dept-bar-wrap {
+  flex: 1;
+  height: 8px;
+  background: var(--bg-tertiary);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.dept-bar {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent-primary), var(--accent-light));
+  border-radius: var(--radius-full);
+  transition: width 0.8s ease;
+}
+
+.dept-count {
+  font-size: var(--font-sm);
+  font-weight: 700;
+  color: var(--text-primary);
+  width: 24px;
+  text-align: right;
+}
+
+/* ==================== Recent Students List ==================== */
+.recent-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.recent-item {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.recent-item:hover {
+  background: var(--bg-tertiary);
+}
+
+.recent-avatar {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, var(--accent-primary), var(--accent-hover));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 700;
+  font-size: var(--font-base);
+  flex-shrink: 0;
+}
+
+.recent-info { flex: 1; overflow: hidden; }
+
+.recent-name {
+  font-size: var(--font-sm);
+  font-weight: 600;
+  color: var(--text-primary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.recent-dept {
+  font-size: var(--font-xs);
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+.recent-arrow {
+  color: var(--text-muted);
+  flex-shrink: 0;
+}
+
+/* ==================== Empty / Loading States ==================== */
+.dashboard-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  gap: var(--spacing-md);
+  color: var(--text-secondary);
+}
+
+.dashboard-empty {
+  color: var(--text-muted);
+  font-size: var(--font-sm);
+  text-align: center;
+  padding: var(--spacing-lg) 0;
+}
+
+.dashboard-empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-md);
+  padding: var(--spacing-xl) 0;
+  color: var(--text-muted);
+}
+
+.dashboard-empty-state p {
+  font-size: var(--font-sm);
+  color: var(--text-muted);
+}
